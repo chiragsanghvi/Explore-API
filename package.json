@@ -1,0 +1,20 @@
+{
+  "name": "Explore-API",
+  "description": "API wrapper for using explore app build over Appacitive",
+  "author": {
+    "name": "Chirag Sanghvi",
+    "email": "csanghvi@appacitive.com"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/chiragsanghvi/Explore-API.git"
+  },
+  "readmeFilename": "README.md",
+  "engines": [
+    "node >= 0.8.16"
+  ],
+  "dependencies": {
+    "restify": "x",
+    "appacitive":"x" 
+  }
+}
