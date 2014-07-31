@@ -18,6 +18,12 @@ var Location = Appacitive.Object.extend('location', {
 	}
 });
 
+var setCorsHeaders = function(res) {
+	res.setHeader('Access-Control-Allow-Origin', '*');
+	res.setHeader('Access-Control-Allow-Methods', 'GET,PUT,POST,DELETE,OPTIONS');
+	res.setHeader('Access-Control-Allow-Headers', 'Content-Type, Authorization, Content-Length, X-Requested-With');
+};
+
 var getDomain = function(res) {
 	
   // Create a domain for exception handling
@@ -41,15 +47,15 @@ var getDomain = function(res) {
 
 var server = restify.createServer();
 server.use(restify.acceptParser(server.acceptable));
-server.pre(restify.CORS( { origins: ['GET', 'POST', 'OPTIONS']}) );
-server.use(restify.fullResponse());
+//server.pre(restify.CORS( { origins: ['GET', 'POST', 'OPTIONS']}) );
+//server.use(restify.fullResponse());
 server.use(restify.queryParser({ mapParams: false }));
 server.use(restify.gzipResponse());
 server.use(restify.bodyParser({ mapParams: false, rejectUnknown: false }));
 
 server.get('/locations', function (req, res, next) {
 	// Set CORS headers
-	//setCorsHeaders(res);
+	setCorsHeaders(res);
 
 	var domain = getDomain(res);
 
