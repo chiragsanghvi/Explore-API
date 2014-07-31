@@ -47,15 +47,15 @@ var getDomain = function(res) {
 
 var server = restify.createServer();
 server.use(restify.acceptParser(server.acceptable));
-//server.pre(restify.CORS( { origins: ['GET', 'POST', 'OPTIONS']}) );
-//server.use(restify.fullResponse());
+server.pre(restify.CORS( { origins: ['GET', 'POST', 'OPTIONS']}) );
+server.use(restify.fullResponse());
 server.use(restify.queryParser({ mapParams: false }));
-server.use(restify.gzipResponse());
+//server.use(restify.gzipResponse());
 server.use(restify.bodyParser({ mapParams: false, rejectUnknown: false }));
 
 server.get('/locations', function (req, res, next) {
 	// Set CORS headers
-	setCorsHeaders(res);
+	//setCorsHeaders(res);
 
 	var domain = getDomain(res);
 
