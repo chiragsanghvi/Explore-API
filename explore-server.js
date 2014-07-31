@@ -10,6 +10,7 @@ Appacitive.initialize({
   appId: "20892347345798035"     // The app id for your app on appacitive. 
 });
 
+Appacitive.config.apiBaseUrl = "http://apis.appacitive.com/v1.0/"
 
 var Location = Appacitive.Object.extend('location', {
 	getDetails: function() {
